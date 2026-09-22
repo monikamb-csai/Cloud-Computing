@@ -1,0 +1,43 @@
+1. Check system information
+
+hostnamectl
+
+
+2. Check CPU information
+
+lscpu
+
+
+3. Check memory information
+
+free -h
+
+
+4. Check disk information
+
+df -h
+
+
+5. Monitor CPU and memory usage
+
+top
+
+
+6. Update package repository
+
+sudo apt update
+
+
+7. Install Sysbench
+
+sudo apt install sysbench -y
+
+
+8. Check Sysbench version
+
+sysbench --version
+
+
+9. Run CPU benchmark
+
+sysbench cpu --cpu-max-prime=20000 run
