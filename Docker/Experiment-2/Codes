@@ -1,1 +1,108 @@
+1. Check Docker version
 
+docker --version
+
+
+2. Check existing Docker images
+
+docker images
+
+
+3. Create and run a new container
+
+docker run -d -p 5001:5000 --name test-python-container my-python-app
+
+
+4. Check the running container
+
+docker ps
+
+
+5. Test the application in browser
+
+http://localhost:5001
+
+
+6. Test the application using PowerShell
+
+Invoke-WebRequest http://localhost:5001
+
+
+7. Display only the returned content
+
+(Invoke-WebRequest http://localhost:5001).Content
+
+
+8. View container logs
+
+docker logs test-python-container
+
+
+9. Inspect the container
+
+docker inspect test-python-container
+
+
+10. Enter the running container
+
+docker exec -it test-python-container /bin/sh
+
+
+11. List files inside the container
+
+ls
+
+
+12. Check the current directory
+
+pwd
+
+
+13. Exit the container
+
+exit
+
+
+14. Check the container after exiting
+
+docker ps
+
+
+15. Stop the container
+
+docker stop test-python-container
+
+
+16. Check all containers
+
+docker ps -a
+
+
+17. Start the stopped container
+
+docker start test-python-container
+
+
+18. Check the running container again
+
+docker ps
+
+
+19. Stop the container before removing
+
+docker stop test-python-container
+
+
+20. Remove the container
+
+docker rm test-python-container
+
+
+21. Verify container removal
+
+docker ps -a
+
+
+22. Check that the Docker image still exists
+
+docker images
