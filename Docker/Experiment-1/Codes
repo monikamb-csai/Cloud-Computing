@@ -1,0 +1,211 @@
+==================================================
+EXPERIMENT 1
+CONTAINERIZE AND RUN A SIMPLE PYTHON WEB APPLICATION
+==================================================
+
+
+====================
+FILE 1: app.py
+====================
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello! My first Docker application is running."
+
+app.run(host="0.0.0.0", port=5000)
+
+
+====================
+FILE 2: requirements.txt
+====================
+
+flask
+
+
+====================
+FILE 3: Dockerfile
+====================
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY app.py .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+
+
+====================
+DOCKER COMMANDS
+====================
+
+1. Check Docker version
+
+docker --version
+
+
+2. Test Docker
+
+docker run hello-world
+
+
+3. Go to Desktop
+
+cd Desktop
+
+
+4. Create project folder
+
+mkdir docker-python-app
+
+
+5. Enter project folder
+
+cd docker-python-app
+
+
+6. Check files
+
+dir
+
+
+7. Build Docker image
+
+docker build -t my-python-app .
+
+
+8. Check Docker images
+
+docker images
+
+
+9. Run Docker container
+
+docker run -d -p 5000:5000 --name my-python-container my-python-app
+
+
+10. Check running containers
+
+docker ps
+
+
+11. Open application in browser
+
+http://localhost:5000
+
+
+12. View container logs
+
+docker logs my-python-container
+
+
+13. Stop container
+
+docker stop my-python-container
+
+
+14. Start container again
+
+docker start my-python-container
+
+
+15. Check running containers
+
+docker ps
+
+
+16. Stop container before removing
+
+docker stop my-python-container
+
+
+17. Remove container
+
+docker rm my-python-container
+
+
+18. Check all containers
+
+docker ps -a
+
+
+19. Check Docker images
+
+docker images
+
+
+====================
+EXPECTED OUTPUT
+====================
+
+Hello! My first Docker application is running.
+
+
+====================
+PROJECT STRUCTURE
+====================
+
+docker-python-app
+|
+|-- app.py
+|-- requirements.txt
+|-- Dockerfile
+|-- README.md
+
+
+====================
+WORKFLOW
+====================
+
+Python Application
+        |
+        v
+     app.py
+        |
+        v
+   Dockerfile
+        |
+        v
+   docker build
+        |
+        v
+  Docker Image
+  my-python-app
+        |
+        v
+    docker run
+        |
+        v
+ Docker Container
+ my-python-container
+        |
+        v
+    Port 5000
+        |
+        v
+     Browser
+        |
+        v
+http://localhost:5000
+
+
+====================
+RESULT
+====================
+
+The Python Flask web application was successfully
+containerized using Docker. The Docker image was
+created successfully and the application was run
+inside a Docker container. The application was
+accessed successfully through the web browser using
+port 5000.
