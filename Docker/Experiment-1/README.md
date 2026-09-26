@@ -1,5 +1,3 @@
-# Docker Lab Experiments
-
 ## Experiment 1: Containerize and Run a Simple Python Web Application
 
 ### Objective
