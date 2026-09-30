@@ -58,10 +58,15 @@ The image was not rebuilt in this experiment.
 ## 3.Exection
 
 docker --version
+
 docker images
+
 docker login
+
 docker tag my-python-app monika035/my-python-app:v1
+
 docker images
+
 docker push monika035/my-python-app:v1
 
 ## 4. Results
