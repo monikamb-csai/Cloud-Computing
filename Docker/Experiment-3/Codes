@@ -1,1 +1,81 @@
 
+PUSH A DOCKER IMAGE TO DOCKER HUB
+
+========================================
+STEP 1: CHECK DOCKER VERSION
+========================================
+
+docker --version
+
+
+========================================
+STEP 2: CHECK EXISTING DOCKER IMAGE
+========================================
+
+docker images
+
+
+========================================
+STEP 3: LOGIN TO DOCKER HUB
+========================================
+
+docker login
+
+
+========================================
+STEP 4: TAG THE EXISTING IMAGE
+========================================
+
+docker tag my-python-app monika035/my-python-app:v1
+
+
+========================================
+STEP 5: CHECK THE TAGGED IMAGE
+========================================
+
+docker images
+
+
+========================================
+STEP 6: PUSH THE IMAGE TO DOCKER HUB
+========================================
+
+docker push monika035/my-python-app:v1
+
+
+========================================
+FINAL DOCKER HUB IMAGE
+========================================
+
+monika035/my-python-app:v1
+
+
+========================================
+EXPERIMENT FLOW
+========================================
+
+Existing Image
+      |
+      v
+my-python-app:latest
+      |
+      v
+docker login
+      |
+      v
+Docker Hub Authentication
+      |
+      v
+docker tag
+      |
+      v
+monika035/my-python-app:v1
+      |
+      v
+docker push
+      |
+      v
+Docker Hub
+      |
+      v
+v1 Tag Verified
