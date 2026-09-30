@@ -102,7 +102,7 @@ docker ps -a
 
 docker images
 
-##4. Results
+## 4. Results
 
 4.1 Docker Desktop
 
