@@ -54,7 +54,13 @@ The image was not rebuilt in this experiment.
                         |
                         v
              http://localhost:5001
+
+                        |
+                        v
+                  Browser
+
 ```
+
 
 ## 3. Execution
 
@@ -66,7 +72,7 @@ docker run -d -p 5001:5000 --name test-python-container my-python-app
 
 docker ps
 
-# Test the Application
+-->Test the Application
 
 Open the browser and enter:
 
@@ -99,21 +105,34 @@ docker images
 ##4. Results
 
 4.1 Docker Desktop
+
 4.2 Docker Version
+
 4.3 Existing Docker Image
+
 4.4 Container Created and Running
+
 4.5 Application Running on localhost:5001
+
 4.6 PowerShell Application Test
+
 4.7 Container Logs
+
 4.8 Container Inspection
+
 4.9 Entering the Container
+
 4.10 Files Inside the Container
+
 4.11 Container Stopped
+
 4.12 Container Started Again
+
 4.13 Container Removed
+
 4.14 Docker Image Still Available
    
-##5. Conclusion
+## 5. Conclusion
 
 The existing Docker image my-python-app was successfully used to create and run the container test-python-container.
 
@@ -121,10 +140,7 @@ The application was tested using the browser and PowerShell. The container was s
 
 The Docker image remained available even after the container was removed.
 
-## Author
+## 6. Author
 
 Monika
 
-                        |
-                        v
-                  Browser
