@@ -54,8 +54,7 @@ The image was not rebuilt in this experiment.
                         v 
              my-python-app:v1
 
-
-
+```
 ## 3.Exection
 
 docker --version
