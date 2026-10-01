@@ -1,4 +1,4 @@
-## 🐳 Docker
+## Docker
 
 This project is containerized using **Docker** to provide a consistent and isolated environment for running the application.
 
