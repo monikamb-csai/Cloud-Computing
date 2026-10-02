@@ -163,6 +163,8 @@ workloads.
 
 ##  Author
 
-Monika M. Bhandari
-B.E. Computer Science and AI Engineering
-KLE Technological University
+Monika.M. Bhandari
+Krupa.Akki
+Srujana.V.B
+Srujana.Patil
+
