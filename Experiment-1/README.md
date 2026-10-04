@@ -1,19 +1,11 @@
 # Experiment 1: Performance Analysis of Type-1 and Type-2 Hypervisors
 
 
-CLOUD COMPUTING – EXPERIMENT 01
-
-TITLE:
+# TITLE:
 Hypervisor Performance Analysis
 
-NAME:
-Monika M. Bhandari
 
-BRANCH:
-CSE (Artificial Intelligence)
-
-
-1. OBJECTIVES
+# 1. OBJECTIVES
 
 • To understand the concept of virtualization and hypervisors.
 • To study Type-1 and Type-2 hypervisors.
@@ -24,9 +16,10 @@ CSE (Artificial Intelligence)
 • To understand the basic difference between virtual machines and containers.
 
 
-2. SYSTEM ARCHITECTURE
+# 2. SYSTEM ARCHITECTURE
 
-TYPE-1 HYPERVISOR – PROXMOX VE
+#TYPE-1 HYPERVISOR – PROXMOX VE
+```
 
 Physical Hardware
         ↓
@@ -38,8 +31,10 @@ Sysbench CPU Benchmark
         ↓
 Performance Result
 
+```
 
-TYPE-2 HYPERVISOR – VMWARE WORKSTATION
+# TYPE-2 HYPERVISOR – VMWARE WORKSTATION
+```
 
 Physical Hardware
         ↓
@@ -53,8 +48,9 @@ Sysbench CPU Benchmark
         ↓
 Performance Result
 
+```
 
-3. TYPE-1 HYPERVISOR – PROXMOX VE
+# 3. TYPE-1 HYPERVISOR – PROXMOX VE
 
 Configuration:
 
@@ -69,7 +65,7 @@ Benchmark        : Sysbench CPU
 Proxmox VE operates directly on the physical hardware and is used to create and manage the Ubuntu virtual machine.
 
 
-4. TYPE-2 HYPERVISOR – VMWARE WORKSTATION
+# 4. TYPE-2 HYPERVISOR – VMWARE WORKSTATION
 
 Configuration:
 
@@ -86,7 +82,7 @@ Benchmark        : Sysbench CPU
 VMware Workstation runs on top of the Windows operating system and provides a virtual environment for running Ubuntu.
 
 
-5. EXECUTION
+# 5. EXECUTION
 
 STEP 1:
 Create and start the Ubuntu virtual machine.
@@ -136,7 +132,7 @@ Record the following performance parameters:
 • 95th percentile latency
 
 
-6. RESULTS
+# 6. RESULTS
 
 The following VMware values are taken from the supplied reference experiment.
 
@@ -158,7 +154,7 @@ Latency Sum                    9992.75 ms
 Proxmox numerical benchmark values were not available in the supplied reference material, so they are not filled with fabricated values.
 
 
-7. RESULT OBSERVATION
+# 7. RESULT OBSERVATION
 
 The reference VMware benchmark completed in approximately 10 seconds.
 
@@ -169,7 +165,7 @@ The average latency was 0.41 ms, while the maximum observed latency was 4.39 ms.
 These values indicate the CPU performance observed during the reference Sysbench execution.
 
 
-8. PERFORMANCE GRAPH
+# 8. PERFORMANCE GRAPH
 
 The graph can be created using the available VMware benchmark values.
 
@@ -180,16 +176,13 @@ Metrics used for the graph:
 • Average Latency
 • Maximum Latency
 
-NOTE:
-The graph should be labelled as REFERENCE BENCHMARK RESULTS because the numerical values are taken from the supplied reference experiment.
 
-
-9. VM VS CONTAINER
+# 9. VM VS CONTAINER
 
 VIRTUAL MACHINE:
 
 A virtual machine provides a complete virtualized environment with its own guest operating system.
-
+```
 Physical Hardware
         ↓
 Hypervisor
@@ -197,12 +190,12 @@ Hypervisor
 Guest Operating System
         ↓
 Application
-
+```
 
 CONTAINER:
 
 A container shares the host operating system kernel while keeping the application and its dependencies isolated.
-
+```
 Physical Hardware
         ↓
 Host Operating System
@@ -212,9 +205,9 @@ Container Runtime
 Container
         ↓
 Application
+```
 
-
-COMPARISON:
+# COMPARISON:
 
 Feature              Virtual Machine        Container
 ------------------------------------------------------------
@@ -225,7 +218,7 @@ Isolation            Strong                 Process-level
 Usage                Full OS environment    Applications
 
 
-10. TYPE-1 VS TYPE-2 COMPARISON
+# 10. TYPE-1 VS TYPE-2 COMPARISON
 
 Feature                     Type-1              Type-2
 ------------------------------------------------------------
@@ -239,7 +232,7 @@ Disk                        20 GB                20 GB
 Virtualization layer        Direct hardware      Above host OS
 
 
-11. CONCLUSION
+# 11. CONCLUSION
 
 This experiment helped in understanding virtualization and the working of Type-1 and Type-2 hypervisors.
 
@@ -250,10 +243,10 @@ Sysbench was used to study CPU performance using parameters such as execution ti
 The experiment also helped in understanding the difference between virtual machines and containers. Virtual machines require a separate guest operating system, whereas containers share the host operating system kernel and generally require fewer resources.
 
 
-12. NAME
+# 12. AUTHOR
 
 Monika M. Bhandari
 
-CSE (Artificial Intelligence)
+
 
 K.L.E. Technological University, Hubballi
