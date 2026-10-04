@@ -792,19 +792,13 @@ For experiments with only one recorded value, standard deviation is shown as N/A
 
 Graphs were generated using Python and Matplotlib.
 
-The graph generation script is:
-
-scripts/generate_plots.py
-
-The graphs are stored in:
-
-results/figures/
-
 The available graphs are:
 
 api_performance.png
 
 cpu_performance.png
+
+disk_performance.png
 
 memory_performance.png
 
