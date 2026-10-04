@@ -794,19 +794,29 @@ Graphs were generated using Python and Matplotlib.
 
 The available graphs are:
 
-api_performance.png
+## API Performance
 
-cpu_performance.png
+![API Performance](api_performance.png)
 
-disk_performance.png
+## CPU Performance
 
-memory_performance.png
+![CPU Performance](cpu_performance.png)
 
-network_performance.png
+## Memory Performance
 
-scalability.png
+![Memory Performance](memory_performance.png)
 
-startup_time.png
+## Disk Performance
+
+![Disk Performance](disk_performance.png)
+
+## Network Performance
+
+![Network Performance](network_performance.png)
+
+## Scalability
+
+![Scalability](scalability.png)
 
 # 53. Performance Graphs
 ## 53.1 API Performance
