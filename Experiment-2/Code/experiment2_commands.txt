@@ -1,1 +1,581 @@
+# EXPERIMENT EXECUTION COMMANDS
 
+1. Check Ubuntu version
+
+lsb_release -a
+
+
+2. Check CPU information
+
+lscpu
+
+
+3. Check number of CPU threads
+
+nproc
+
+
+4. Check memory information
+
+free -h
+
+
+5. Check disk information
+
+df -h
+
+
+6. Check Linux kernel
+
+uname -a
+
+
+7. Update Ubuntu packages
+
+sudo apt update
+
+
+8. Install required tools
+
+sudo apt install -y sysbench fio iperf3 htop iotop sysstat python3 python3-pip git curl
+
+
+9. Check Sysbench version
+
+sysbench --version
+
+
+10. Check fio version
+
+fio --version
+
+
+11. Check iperf3 version
+
+iperf3 --version
+
+
+12. Check Python version
+
+python3 --version
+
+
+13. Check Git version
+
+git --version
+
+
+14. Create project folder
+
+mkdir -p ~/vm-vs-container-performance
+
+
+15. Enter project folder
+
+cd ~/vm-vs-container-performance
+
+
+16. Check current location
+
+pwd
+
+
+17. Create required folders
+
+mkdir -p docs vm docker workloads/cpu workloads/memory workloads/disk workloads/network scripts results/raw results/processed results/figures screenshots analysis
+
+
+18. Check project folders
+
+find . -maxdepth 2 -type d
+
+
+19. Run CPU benchmark with 1 thread
+
+sysbench cpu --cpu-max-prime=20000 --threads=1 --time=30 run
+
+
+20. Run CPU benchmark with 2 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=2 --time=30 run
+
+
+21. Run CPU benchmark with 4 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=4 --time=30 run
+
+
+22. Run CPU benchmark with 8 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=8 --time=30 run
+
+
+23. Monitor CPU usage
+
+htop
+
+
+24. Monitor CPU and memory
+
+vmstat 1
+
+
+25. Run memory benchmark
+
+sysbench memory --memory-block-size=1M --memory-total-size=10G run
+
+
+26. Run second memory benchmark
+
+sysbench memory --memory-block-size=1M --memory-total-size=10G run
+
+
+27. Create fio test directory
+
+mkdir -p ~/fio-test
+
+
+28. Run sequential read benchmark
+
+fio --name=seq-read --filename=~/fio-test/testfile --size=1G --bs=1M --rw=read --direct=1 --runtime=30 --time_based --group_reporting
+
+
+29. Run sequential write benchmark
+
+fio --name=seq-write --filename=~/fio-test/testfile --size=1G --bs=1M --rw=write --direct=1 --runtime=30 --time_based --group_reporting
+
+
+30. Run random read benchmark
+
+fio --name=rand-read --filename=~/fio-test/testfile --size=1G --bs=4k --rw=randread --direct=1 --runtime=30 --time_based --group_reporting
+
+
+31. Run random write benchmark
+
+fio --name=rand-write --filename=~/fio-test/testfile --size=1G --bs=4k --rw=randwrite --direct=1 --runtime=30 --time_based --group_reporting
+
+
+32. Start iperf3 server
+
+iperf3 -s
+
+
+33. Run iperf3 client
+
+iperf3 -c 127.0.0.1 -t 10
+
+
+34. Check network interface information
+
+ip addr
+
+
+35. Create API folder
+
+mkdir -p api
+
+
+36. Enter API folder
+
+cd api
+
+
+37. Create requirements file
+
+nano requirements.txt
+
+
+38. Add FastAPI and Uvicorn
+
+fastapi
+uvicorn
+
+
+39. Install FastAPI and Uvicorn
+
+pip3 install fastapi uvicorn --break-system-packages
+
+
+40. Return to project folder
+
+cd ..
+
+
+41. Start FastAPI application
+
+python3 -m uvicorn api.main:app --host 127.0.0.1 --port 8000
+
+
+42. Open FastAPI home endpoint
+
+curl http://127.0.0.1:8000/
+
+
+43. Test compute endpoint
+
+curl http://127.0.0.1:8000/compute
+
+
+44. Measure API response time
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+45. Measure API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+46. Measure API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+47. Measure API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+48. Measure API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+49. Measure API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+50. Test 10 API requests
+
+time bash -c 'for i in {1..10}; do curl -s http://127.0.0.1:8000/compute > /dev/null; done'
+
+
+51. Test 50 API requests
+
+time bash -c 'for i in {1..50}; do curl -s http://127.0.0.1:8000/compute > /dev/null; done'
+
+
+52. Test 100 API requests
+
+time bash -c 'for i in {1..100}; do curl -s http://127.0.0.1:8000/compute > /dev/null; done'
+
+
+53. Measure application startup time
+
+time python3 -m uvicorn api.main:app --host 127.0.0.1 --port 8000
+
+
+54. Check Docker version
+
+docker --version
+
+
+55. Check Docker information
+
+docker info
+
+
+56. Test Docker installation
+
+docker run --rm hello-world
+
+
+57. Create Docker benchmark folder
+
+mkdir -p docker
+
+
+58. Build Docker benchmark image
+
+docker build -t vm-container-benchmark -f docker/Dockerfile .
+
+
+59. Check Docker images
+
+docker images
+
+
+60. Run Docker benchmark container
+
+docker run -it --name benchmark-container vm-container-benchmark
+
+
+61. Check running Docker containers
+
+docker ps
+
+
+62. Enter Docker container
+
+docker exec -it benchmark-container bash
+
+
+63. Check CPU inside Docker container
+
+nproc
+
+
+64. Run Docker CPU benchmark with 1 thread
+
+sysbench cpu --cpu-max-prime=20000 --threads=1 --time=30 run
+
+
+65. Run Docker CPU benchmark with 2 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=2 --time=30 run
+
+
+66. Run Docker CPU benchmark with 4 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=4 --time=30 run
+
+
+67. Run Docker CPU benchmark with 8 threads
+
+sysbench cpu --cpu-max-prime=20000 --threads=8 --time=30 run
+
+
+68. Run Docker memory benchmark
+
+sysbench memory --memory-block-size=1M --memory-total-size=10G run
+
+
+69. Run second Docker memory benchmark
+
+sysbench memory --memory-block-size=1M --memory-total-size=10G run
+
+
+70. Update Docker package list
+
+apt-get update
+
+
+71. Install fio inside Docker
+
+apt-get install -y fio
+
+
+72. Check fio version inside Docker
+
+fio --version
+
+
+73. Run Docker sequential read benchmark
+
+fio --name=seq-read --filename=/tmp/fio-test/testfile --size=1G --bs=1M --rw=read --direct=1 --runtime=30 --time_based --group_reporting
+
+
+74. Run Docker sequential write benchmark
+
+fio --name=seq-write --filename=/tmp/fio-test/testfile --size=1G --bs=1M --rw=write --direct=1 --runtime=30 --time_based --group_reporting
+
+
+75. Run Docker random read benchmark
+
+fio --name=rand-read --filename=/tmp/fio-test/testfile --size=1G --bs=4k --rw=randread --direct=1 --runtime=30 --time_based --group_reporting
+
+
+76. Run Docker random write benchmark
+
+fio --name=rand-write --filename=/tmp/fio-test/testfile --size=1G --bs=4k --rw=randwrite --direct=1 --runtime=30 --time_based --group_reporting
+
+
+77. Install iperf3 inside Docker
+
+apt-get install -y iperf3
+
+
+78. Start iperf3 server inside Docker
+
+iperf3 -s
+
+
+79. Run Docker network benchmark
+
+iperf3 -c 127.0.0.1 -t 10
+
+
+80. Return to project folder
+
+cd /mnt/c/Users/DELL/vm-vs-container-performance
+
+
+81. Build FastAPI Docker image
+
+docker build -t performance-api ./api
+
+
+82. Check FastAPI Docker image
+
+docker images
+
+
+83. Run FastAPI Docker container
+
+docker run -d --name performance-api-container -p 8000:8000 performance-api
+
+
+84. Check FastAPI Docker container
+
+docker ps
+
+
+85. Test Docker FastAPI application
+
+curl http://127.0.0.1:8000/
+
+
+86. Test Docker compute endpoint
+
+curl http://127.0.0.1:8000/compute
+
+
+87. Measure Docker API response time
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+88. Measure Docker API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+89. Measure Docker API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+90. Measure Docker API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+91. Measure Docker API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+92. Measure Docker API response time again
+
+curl -o /dev/null -s -w "Response time: %{time_total} seconds\n" http://127.0.0.1:8000/compute
+
+
+93. Check Docker container logs
+
+docker logs performance-api-container
+
+
+94. Stop FastAPI Docker container
+
+docker stop performance-api-container
+
+
+95. Start FastAPI Docker container
+
+docker start performance-api-container
+
+
+96. Check Docker container
+
+docker ps
+
+
+97. Stop benchmark container
+
+docker stop benchmark-container
+
+
+98. Remove benchmark container
+
+docker rm benchmark-container
+
+
+99. Check all Docker containers
+
+docker ps -a
+
+
+100. Check Docker images
+
+docker images
+
+
+101. Run statistical analysis
+
+python3 scripts/analyze_results.py
+
+
+102. Generate performance graphs
+
+python3 scripts/generate_plots.py
+
+
+103. Check generated graphs
+
+ls results/figures
+
+
+104. Check processed results
+
+ls results/processed
+
+
+105. Check project files
+
+find . -maxdepth 3 -type f | sort
+
+
+106. Initialize Git repository
+
+git init
+
+
+107. Check Git status
+
+git status
+
+
+108. Add all project files
+
+git add .
+
+
+109. Commit project
+
+git commit -m "Add VM vs Container performance analysis"
+
+
+110. Set main branch
+
+git branch -M main
+
+
+111. Add GitHub repository
+
+git remote add origin <GITHUB-REPOSITORY-URL>
+
+
+112. Push project to GitHub
+
+git push -u origin main
+
+
+113. Check Git status
+
+git status
+
+
+114. Update GitHub after changes
+
+git add .
+
+
+115. Commit updated results
+
+git commit -m "Add experiment results and performance graphs"
+
+
+116. Push updated project
+
+git push
