@@ -1,9 +1,5 @@
 # Experiment 1: Performance Analysis of Type-1 and Type-2 Hypervisors
 
-
-# TITLE: Hypervisor Performance Analysis
-
-
 # 1. OBJECTIVES
 
 • To understand the concept of virtualization and hypervisors.
@@ -17,7 +13,7 @@
 
 # 2. SYSTEM ARCHITECTURE
 
-#TYPE-1 HYPERVISOR – PROXMOX VE
+TYPE-1 HYPERVISOR – PROXMOX VE
 ```
 
 Physical Hardware
@@ -32,7 +28,7 @@ Performance Result
 
 ```
 
-# TYPE-2 HYPERVISOR – VMWARE WORKSTATION
+ TYPE-2 HYPERVISOR – VMWARE WORKSTATION
 ```
 
 Physical Hardware
@@ -135,22 +131,23 @@ Record the following performance parameters:
 
 The following VMware values are taken from the supplied reference experiment.
 
-Metric                         VMware Workstation
---------------------------------------------------
-Sysbench Version               1.0.20
-Benchmark                      CPU
-Prime Number Limit             20,000
-Threads                        1
-Total Execution Time           10.0006 s
-Total Events                   24,366
-Events Per Second              2,436.05
-Minimum Latency                0.40 ms
-Average Latency                0.41 ms
-Maximum Latency                4.39 ms
-95th Percentile Latency        0.42 ms
-Latency Sum                    9992.75 ms
+## VMware Workstation Results
 
-Proxmox numerical benchmark values were not available in the supplied reference material, so they are not filled with fabricated values.
+| Metric                  | VMware Workstation |
+| ----------------------- | -----------------: |
+| Sysbench Version        |             1.0.20 |
+| Benchmark               |                CPU |
+| Prime Number Limit      |             20,000 |
+| Threads                 |                  1 |
+| Total Execution Time    |          10.0006 s |
+| Total Events            |             24,366 |
+| Events Per Second       |           2,436.05 |
+| Minimum Latency         |            0.40 ms |
+| Average Latency         |            0.41 ms |
+| Maximum Latency         |            4.39 ms |
+| 95th Percentile Latency |            0.42 ms |
+| Latency Sum             |         9992.75 ms |
+
 
 
 # 7. RESULT OBSERVATION
@@ -206,29 +203,30 @@ Container
 Application
 ```
 
-# COMPARISON:
+# COMPARISON: VM vs Container
 
-Feature              Virtual Machine        Container
-------------------------------------------------------------
-Operating System     Separate guest OS      Shares host OS
-Startup              Generally slower       Generally faster
-Resource Usage       Higher                 Lower
-Isolation            Strong                 Process-level
-Usage                Full OS environment    Applications
+| Feature          | Virtual Machine     | Container        |
+| ---------------- | ------------------- | ---------------- |
+| Operating System | Separate guest OS   | Shares host OS   |
+| Startup          | Generally slower    | Generally faster |
+| Resource Usage   | Higher              | Lower            |
+| Isolation        | Strong              | Process-level    |
+| Usage            | Full OS environment | Applications     |
 
 
-# 10. TYPE-1 VS TYPE-2 COMPARISON
 
-Feature                     Type-1              Type-2
-------------------------------------------------------------
-Example                     Proxmox VE           VMware Workstation
-Runs on                     Physical hardware    Host OS
-Host OS required            No                   Yes
-Guest OS                    Ubuntu               Ubuntu
-CPU                         2 vCPU               2 vCPU
-Memory                      2 GB                 2 GB
-Disk                        20 GB                20 GB
-Virtualization layer        Direct hardware      Above host OS
+# 10.Type-1 vs Type-2 Hypervisor Comparison
+
+| Feature              | Type-1            | Type-2             |
+| -------------------- | ----------------- | ------------------ |
+| Example              | Proxmox VE        | VMware Workstation |
+| Runs on              | Physical hardware | Host OS            |
+| Host OS required     | No                | Yes                |
+| Guest OS             | Ubuntu            | Ubuntu             |
+| CPU                  | 2 vCPU            | 2 vCPU             |
+| Memory               | 2 GB              | 2 GB               |
+| Disk                 | 20 GB             | 20 GB              |
+| Virtualization Layer | Direct hardware   | Above host OS      |
 
 
 # 11. CONCLUSION
@@ -248,4 +246,4 @@ Monika M. Bhandari
 
 
 
-K.L.E. Technological University, Hubballi
+
