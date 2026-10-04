@@ -138,7 +138,7 @@ The same category of workloads is used to analyze both environments.
                               |
                             Graphs
 ```
-6. Project Structure
+# 6. Project Structure
 ```
 vm-vs-container-performance/
 │
@@ -190,8 +190,8 @@ vm-vs-container-performance/
 └── analysis/
     └── analysis.ipynb
    ```
-PART A – VIRTUAL MACHINE
-8. Create Virtual Machine
+# PART A – VIRTUAL MACHINE
+# 8. Create Virtual Machine
 
 A Virtual Machine was created using VMware Workstation.
 
@@ -203,7 +203,8 @@ Disk Size: 60 GB
 CPU: 4 cores
 Memory: 8 GB
 Network: Configured according to the experimental environment
-9. Install Ubuntu
+
+# 9. Install Ubuntu
 
 The following steps were followed:
 
@@ -224,7 +225,8 @@ Set timezone.
 Create username and password.
 Complete installation.
 Restart the VM.
-10. Verify Virtual Machine
+
+# 10. Verify Virtual Machine
 
 The following commands were used:
 
@@ -809,8 +811,8 @@ The scalability graph shows how total execution time changes with increasing num
 
 The startup graph represents the measured application startup experiment.
 
-PART O – VM AND CONTAINER COMPARISON
-54. Comparison
+## PART O – VM AND CONTAINER COMPARISON
+# 54. Comparison
 
 The following table provides a comparison of the two environments.
 
@@ -832,7 +834,7 @@ Scalability	Expected good	Observed increasing execution time with workload	Both 
 
 Note: Estimated VM values are included only as approximate reference values for discussion. They are not claimed as direct VM measurements. The final experimental comparison should use measured VM values when available.
 
-55. General Comparison
+ # 55. General Comparison
 Virtual Machine
 
 A Virtual Machine provides a complete guest operating system and virtualized hardware environment.
@@ -886,7 +888,7 @@ The scalability experiment showed that total execution time increased when the w
 
 Containers are generally expected to have lower overhead because they share the host operating system kernel, while Virtual Machines require a complete guest operating system.
 
-57. Limitations
+# 57. Limitations
 
 The project has the following limitations:
 
@@ -928,7 +930,8 @@ Step 10 – Statistical Analysis
 python3 scripts/analyze_results.py
 Step 11 – Generate Graphs
 python3 scripts/generate_plots.py
-59. Screenshots
+
+# 59. Screenshots
 
 Experiment screenshots are stored inside:
 
@@ -958,10 +961,10 @@ The screenshot naming convention is:
 
 These screenshots provide visual evidence of the experiment execution.
 
-60. Output Files
+# 60. Output Files
 
 Important result files include:
-
+```
 results/
 │
 ├── raw/
@@ -977,7 +980,8 @@ results/
     ├── network_performance.png
     ├── scalability.png
     └── startup_time.png
-61. GitHub Publication
+```
+# 61. GitHub Publication
 
 The project is maintained using Git and GitHub.
 
@@ -1004,14 +1008,16 @@ git remote add origin <GITHUB-REPOSITORY-URL>
 Push:
 
 git push -u origin main
-62. Updating GitHub
+
+# 62. Updating GitHub
 
 After adding new screenshots, graphs, or results:
 
 git add .
 git commit -m "Add experiment results and performance graphs"
 git push
-63. Final GitHub Repository Structure
+
+# 63. Final GitHub Repository Structure
 ```
 vm-vs-container-performance/
 │
@@ -1069,7 +1075,7 @@ vm-vs-container-performance/
 └── analysis/
     └── analysis.ipynb
 ```
-65. Conclusion
+# 65. Conclusion
 
 This project presents an experimental performance analysis of Virtual Machines and Docker Containers.
 
@@ -1086,6 +1092,8 @@ The experiments demonstrate that different execution environments have different
 Virtual Machines provide a complete guest operating system and strong isolation, while Docker Containers provide lightweight application isolation with lower expected overhead.
 
 The project also demonstrates the importance of collecting actual measurements, maintaining raw results, performing statistical analysis, generating graphs, and documenting the complete experimental procedure.
-**Author:** 
+
+# Author:
+MONIKA.M.BHANDARI
 
 Monika M. Bhandari  
