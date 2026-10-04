@@ -168,10 +168,14 @@ The graph can be created using the available VMware benchmark values.
 Metrics used for the graph:
 
 • Total Events
+
 • Events Per Second
+
 • Average Latency
+
 • Maximum Latency
 
+![Performance Graph](graph.png)
 
 # 9. VM VS CONTAINER
 
