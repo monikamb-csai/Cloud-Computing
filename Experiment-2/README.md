@@ -663,8 +663,11 @@ fio was installed inside the Docker container.
 The following tests were performed:
 
 Sequential Read
+
 Sequential Write
+
 Random Read
+
 Random Write
 
 The same benchmark methodology was used for comparison.
@@ -721,21 +724,37 @@ The CSV contains values from the completed experiments.
 Example measured values include:
 
 experiment,workload,value,unit
+
 CPU,4 threads,2847.74,events/sec
+
 CPU,8 threads,5204.09,events/sec
+
 Memory,Run 1,32941.74,MiB/sec
+
 Memory,Run 2,28440.75,MiB/sec
+
 Network,iperf3 loopback,53.3,Gbits/sec
+
 API,Request 1,0.014007,seconds
+
 API,Request 2,0.007228,seconds
+
 API,Request 3,0.006512,seconds
+
 API,Request 4,0.009844,seconds
+
 API,Request 5,0.013185,seconds
+
 API,Request 6,0.011088,seconds
+
 Startup,Uvicorn startup,22.198,seconds
+
 Scalability,10 requests,0.173,seconds
+
 Scalability,50 requests,0.608,seconds
+
 Scalability,100 requests,1.458,seconds
+
 # 50. Statistical Analysis
 
 Statistical analysis was performed using Python and Pandas.
@@ -784,11 +803,17 @@ results/figures/
 The available graphs are:
 
 api_performance.png
+
 cpu_performance.png
+
 memory_performance.png
+
 network_performance.png
+
 scalability.png
+
 startup_time.png
+
 # 53. Performance Graphs
 ## 53.1 API Performance
 
