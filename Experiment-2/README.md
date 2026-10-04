@@ -806,10 +806,6 @@ The available graphs are:
 
 ![Memory Performance](memory_performance.png)
 
-## Disk Performance
-
-![Disk Performance](disk_performance.png)
-
 ## Network Performance
 
 ![Network Performance](network_performance.png)
@@ -817,6 +813,10 @@ The available graphs are:
 ## Scalability
 
 ![Scalability](scalability.png)
+
+## StartUp Time
+
+![StartUp Time](startup_time.png)
 
 # 53. Performance Graphs
 ## 53.1 API Performance
@@ -968,15 +968,21 @@ screenshots/
 
 The screenshot naming convention is:
 
+## CPU Benchmark
 
-05_cpu_benchmark.png
+![CPU Benchmark](05_cpu_benchmark.png)
 
-07_disk_benchmark.png
+## Disk Benchmark
 
-10_api_performance.png
+![Disk Benchmark](07_disk_benchmark.png)
 
-12_scalability.png
+## API Performance
 
+![API Performance](10_api_performance.png)
+
+## Scalability
+
+![Scalability](12_scalability.png)
 
 These screenshots provide visual evidence of the experiment execution.
 
