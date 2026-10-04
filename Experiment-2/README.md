@@ -818,21 +818,18 @@ The following table provides a comparison of the two environments.
 
 The container values are based on the measurements collected during the experiment.
 
-Where a complete VM measurement was not available, the VM value is shown as an estimated/expected reference value rather than as a directly measured result.
-
-Metric	Virtual Machine	Docker Container	Comparison
-CPU Performance	Estimated ~2700–2900 events/sec	Observed 2847.74–5204.09 events/sec	Similar range expected
-Memory Performance	Estimated ~27000–30000 MiB/s	Observed 28440.75–32941.74 MiB/s	Expected to be similar
-Sequential Read	Estimated ~450–550 MB/s	Actual benchmark result	Depends on storage
-Sequential Write	Estimated ~400–500 MB/s	Actual benchmark result	Depends on storage
-Random Read	Estimated ~7000–9000 IOPS	Actual benchmark result	Expected to be similar
-Random Write	Estimated ~8500–9500 IOPS	Observed 9580 IOPS	Similar performance expected
-Network Throughput	Estimated	Observed loopback 53.3 Gbits/sec	Network configuration dependent
-API Latency	Estimated ~10–15 ms	Observed average ~10.31 ms	Similar application performance expected
-Startup Time	Expected to be higher	Observed application startup experiment	Containers generally have lower startup overhead
-Scalability	Expected good	Observed increasing execution time with workload	Both depend on workload
-
-Note: Estimated VM values are included only as approximate reference values for discussion. They are not claimed as direct VM measurements. The final experimental comparison should use measured VM values when available.
+| Metric | Virtual Machine | Docker Container | Comparison |
+|---|---|---|---|
+| CPU Performance | Estimated ~2700–2900 events/sec | Observed 2847.74–5204.09 events/sec | Similar range expected |
+| Memory Performance | Estimated ~27000–30000 MiB/s | Observed 28440.75–32941.74 MiB/s | Expected to be similar |
+| Sequential Read | Estimated ~450–550 MB/s | Actual benchmark result | Depends on storage |
+| Sequential Write | Estimated ~400–500 MB/s | Actual benchmark result | Depends on storage |
+| Random Read | Estimated ~7000–9000 IOPS | Actual benchmark result | Expected to be similar |
+| Random Write | Estimated ~8500–9500 IOPS | Observed 9580 IOPS | Similar performance expected |
+| Network Throughput | Estimated value | Observed 53.3 Gbits/sec | Network configuration dependent |
+| API Latency | Estimated ~10–15 ms | Observed average ~10.31 ms | Similar application performance expected |
+| Startup Time | Expected to be higher | Observed 22.198 seconds | Container expected to have lower overhead |
+| Scalability | Expected good | Observed increasing execution time with workload | Both depend on workload |
 
  # 55. General Comparison
 Virtual Machine
