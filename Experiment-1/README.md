@@ -1,118 +1,259 @@
 # Experiment 1: Performance Analysis of Type-1 and Type-2 Hypervisors
 
-# Hypervisor Performance Analysis
 
-## 1. Objective
-Short explanation of what the experiment measures.
+CLOUD COMPUTING – EXPERIMENT 01
 
-## 2. Technologies Used
-- Proxmox VE – Type-1 Hypervisor
-- VMware Workstation – Type-2 Hypervisor
-- Ubuntu
-- Sysbench
+TITLE:
+Hypervisor Performance Analysis
 
-## 3. VM Configuration
-| Resource | Configuration |
-|---|---|
-| OS | Ubuntu |
-| CPU | 2 vCPU |
-| RAM | 2 GB |
-| Disk | 20 GB |
+NAME:
+Monika M. Bhandari
 
-# PART A – PROXMOX VE
+BRANCH:
+CSE (Artificial Intelligence)
 
-## 4. Access Proxmox
-1. Connect to the network.
-2. Open browser.
-3. Open:
-   https://<PROXMOX_IP>:8006
-4. Accept certificate warning.
-5. Enter username/password.
-6. Click Login.
 
-## 5. Create VM
-1. Datacenter → Node
-2. Click Create VM.
-3. Enter VM name.
-4. Select Ubuntu ISO.
-5. Keep default System settings.
-6. Set disk = 20 GB.
-7. CPU = 2 cores.
-8. Memory = 2048 MB.
-9. Network = vmbr0.
-10. Review → Finish.
+1. OBJECTIVES
 
-## 6. Install Ubuntu
-1. Start VM.
-2. Open Console.
-3. Select language.
-4. Install Ubuntu.
-5. Configure keyboard.
-6. Select disk.
-7. Set timezone.
-8. Create username/password.
-9. Complete installation.
-10. Restart VM.
+• To understand the concept of virtualization and hypervisors.
+• To study Type-1 and Type-2 hypervisors.
+• To understand the working of Proxmox VE and VMware Workstation.
+• To perform CPU benchmarking using Sysbench.
+• To study different CPU performance metrics.
+• To compare virtual machine performance.
+• To understand the basic difference between virtual machines and containers.
 
-### Type-1 Hypervisor — Proxmox VE
 
-**Execution Steps**
+2. SYSTEM ARCHITECTURE
 
-1. Access Proxmox Web Interface
-2. Login to Proxmox
-3. Create Virtual Machine
-4. Configure OS
-5. Configure CPU — 2 vCPU
-6. Configure Memory — 2 GB
-7. Configure Disk — 20 GB
-8. Configure Network
-9. Start VM
-10. Install Ubuntu
-11. Verify VM using `hostnamectl`, `lscpu`, `free -h`, `df -h`
-12. Install Sysbench
-13. Run CPU benchmark
-14. Record results
-15. Monitor VM resources
-16. Shut down VM
+TYPE-1 HYPERVISOR – PROXMOX VE
 
-### Type-2 Hypervisor — VMware Workstation
+Physical Hardware
+        ↓
+    Proxmox VE
+        ↓
+Ubuntu Virtual Machine
+        ↓
+Sysbench CPU Benchmark
+        ↓
+Performance Result
 
-**Execution Steps**
 
-1. Open VMware Workstation
-2. Create New Virtual Machine
-3. Select Typical Configuration
-4. Select Ubuntu ISO
-5. Configure VM Name
-6. Configure Disk — 20 GB
-7. Customize Hardware
-8. Configure CPU — 2 vCPU
-9. Configure Memory — 2 GB
-10. Configure Network — NAT
-11. Start VM
-12. Install Ubuntu
-13. Verify VM using `hostnamectl`, `lscpu`, `free -h`, `df -h`
-14. Install Sysbench
-15. Run CPU benchmark
-16. Record results
-17. Monitor VM resources
-18. Shut down VM
+TYPE-2 HYPERVISOR – VMWARE WORKSTATION
 
-## 7. Verify VM
+Physical Hardware
+        ↓
+    Windows OS
+        ↓
+VMware Workstation
+        ↓
+Ubuntu Virtual Machine
+        ↓
+Sysbench CPU Benchmark
+        ↓
+Performance Result
 
-Run:
 
-hostnamectl
-lscpu
-free -h
-df -h
-top
+3. TYPE-1 HYPERVISOR – PROXMOX VE
 
-Press `q` to exit `top`.
+Configuration:
 
-## 8. Install Sysbench
+Hypervisor       : Proxmox VE
+Hypervisor Type  : Type-1
+Guest OS         : Ubuntu
+CPU              : 2 vCPU
+Memory           : 2 GB RAM
+Disk             : 20 GB
+Benchmark        : Sysbench CPU
 
-```bash
+Proxmox VE operates directly on the physical hardware and is used to create and manage the Ubuntu virtual machine.
+
+
+4. TYPE-2 HYPERVISOR – VMWARE WORKSTATION
+
+Configuration:
+
+Hypervisor       : VMware Workstation
+Hypervisor Type  : Type-2
+Host OS          : Windows
+Guest OS         : Ubuntu
+CPU              : 2 vCPU
+Memory           : 2 GB RAM
+Disk             : 20 GB
+Network          : NAT
+Benchmark        : Sysbench CPU
+
+VMware Workstation runs on top of the Windows operating system and provides a virtual environment for running Ubuntu.
+
+
+5. EXECUTION
+
+STEP 1:
+Create and start the Ubuntu virtual machine.
+
+STEP 2:
+Configure the virtual machine with 2 vCPU, 2 GB RAM and 20 GB disk.
+
+STEP 3:
+Open the Ubuntu terminal.
+
+STEP 4:
+Update the package information.
+
+Command:
+
 sudo apt update
+
+STEP 5:
+Install Sysbench.
+
+Command:
+
 sudo apt install sysbench -y
+
+STEP 6:
+Check the installed Sysbench version.
+
+Command:
+
 sysbench --version
+
+STEP 7:
+Run the CPU benchmark.
+
+Command:
+
+sysbench cpu --cpu-max-prime=20000 run
+
+STEP 8:
+Record the following performance parameters:
+
+• Total execution time
+• Total events
+• Events per second
+• Average latency
+• Maximum latency
+• 95th percentile latency
+
+
+6. RESULTS
+
+The following VMware values are taken from the supplied reference experiment.
+
+Metric                         VMware Workstation
+--------------------------------------------------
+Sysbench Version               1.0.20
+Benchmark                      CPU
+Prime Number Limit             20,000
+Threads                        1
+Total Execution Time           10.0006 s
+Total Events                   24,366
+Events Per Second              2,436.05
+Minimum Latency                0.40 ms
+Average Latency                0.41 ms
+Maximum Latency                4.39 ms
+95th Percentile Latency        0.42 ms
+Latency Sum                    9992.75 ms
+
+Proxmox numerical benchmark values were not available in the supplied reference material, so they are not filled with fabricated values.
+
+
+7. RESULT OBSERVATION
+
+The reference VMware benchmark completed in approximately 10 seconds.
+
+The system processed 24,366 total events and achieved approximately 2,436.05 events per second.
+
+The average latency was 0.41 ms, while the maximum observed latency was 4.39 ms.
+
+These values indicate the CPU performance observed during the reference Sysbench execution.
+
+
+8. PERFORMANCE GRAPH
+
+The graph can be created using the available VMware benchmark values.
+
+Metrics used for the graph:
+
+• Total Events
+• Events Per Second
+• Average Latency
+• Maximum Latency
+
+NOTE:
+The graph should be labelled as REFERENCE BENCHMARK RESULTS because the numerical values are taken from the supplied reference experiment.
+
+
+9. VM VS CONTAINER
+
+VIRTUAL MACHINE:
+
+A virtual machine provides a complete virtualized environment with its own guest operating system.
+
+Physical Hardware
+        ↓
+Hypervisor
+        ↓
+Guest Operating System
+        ↓
+Application
+
+
+CONTAINER:
+
+A container shares the host operating system kernel while keeping the application and its dependencies isolated.
+
+Physical Hardware
+        ↓
+Host Operating System
+        ↓
+Container Runtime
+        ↓
+Container
+        ↓
+Application
+
+
+COMPARISON:
+
+Feature              Virtual Machine        Container
+------------------------------------------------------------
+Operating System     Separate guest OS      Shares host OS
+Startup              Generally slower       Generally faster
+Resource Usage       Higher                 Lower
+Isolation            Strong                 Process-level
+Usage                Full OS environment    Applications
+
+
+10. TYPE-1 VS TYPE-2 COMPARISON
+
+Feature                     Type-1              Type-2
+------------------------------------------------------------
+Example                     Proxmox VE           VMware Workstation
+Runs on                     Physical hardware    Host OS
+Host OS required            No                   Yes
+Guest OS                    Ubuntu               Ubuntu
+CPU                         2 vCPU               2 vCPU
+Memory                      2 GB                 2 GB
+Disk                        20 GB                20 GB
+Virtualization layer        Direct hardware      Above host OS
+
+
+11. CONCLUSION
+
+This experiment helped in understanding virtualization and the working of Type-1 and Type-2 hypervisors.
+
+Proxmox VE represents a Type-1 hypervisor because it operates directly on physical hardware. VMware Workstation represents a Type-2 hypervisor because it runs on top of a host operating system.
+
+Sysbench was used to study CPU performance using parameters such as execution time, total events, events per second and latency.
+
+The experiment also helped in understanding the difference between virtual machines and containers. Virtual machines require a separate guest operating system, whereas containers share the host operating system kernel and generally require fewer resources.
+
+
+12. NAME
+
+Monika M. Bhandari
+
+CSE (Artificial Intelligence)
+
+K.L.E. Technological University, Hubballi
