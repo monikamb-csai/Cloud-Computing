@@ -756,15 +756,18 @@ The output file is:
 
 results/processed/statistical_analysis.csv
 # 51. Statistical Results
-Experiment	Mean	Median	Minimum	Maximum	Standard Deviation
-CPU	4025.915	4025.915	2847.74	5204.09	1666.191
-Memory	30691.245	30691.245	28440.75	32941.74	3182.681
-Network	53.3	53.3	53.3	53.3	N/A
-API	0.01031	0.010466	0.006512	0.014007	0.003055
-Startup	22.198	22.198	22.198	22.198	N/A
-Scalability	0.7463	0.608	0.173	1.458	0.6536
+The statistical analysis of the experimental results is shown below.
 
-For experiments with only one value, standard deviation is shown as N/A.
+| Experiment | Mean | Median | Minimum | Maximum | Standard Deviation |
+|---|---:|---:|---:|---:|---:|
+| CPU | 4025.915 | 4025.915 | 2847.74 | 5204.09 | 1666.191 |
+| Memory | 30691.245 | 30691.245 | 28440.75 | 32941.74 | 3182.681 |
+| Network | 53.3 | 53.3 | 53.3 | 53.3 | N/A |
+| API | 0.01031 | 0.010466 | 0.006512 | 0.014007 | 0.003055 |
+| Startup | 22.198 | 22.198 | 22.198 | 22.198 | N/A |
+| Scalability | 0.7463 | 0.608 | 0.173 | 1.458 | 0.6536 |
+
+For experiments with only one recorded value, standard deviation is shown as N/A.
 
 # 52. Graph Generation
 
@@ -936,25 +939,15 @@ screenshots/
 
 The screenshot naming convention is:
 
-01_environment_setup.png
-02_tools_installed.png
-03_project_structure.png
-04_baseline.png
+
 05_cpu_benchmark.png
-06_memory_benchmark.png
+
 07_disk_benchmark.png
-08_network_benchmark.png
-09_api_running.png
+
 10_api_performance.png
-11_startup_time.png
+
 12_scalability.png
-13_docker_working.png
-14_docker_cpu.png
-15_docker_memory.png
-16_docker_disk.png
-17_docker_network.png
-18_docker_api.png
-19_docker_api_performance.png
+
 
 These screenshots provide visual evidence of the experiment execution.
 
@@ -1091,6 +1084,5 @@ Virtual Machines provide a complete guest operating system and strong isolation,
 The project also demonstrates the importance of collecting actual measurements, maintaining raw results, performing statistical analysis, generating graphs, and documenting the complete experimental procedure.
 
 # Author:
-MONIKA.M.BHANDARI
 
 Monika M. Bhandari  
