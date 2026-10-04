@@ -2,36 +2,6 @@
 # Experiment 2 : PERFORMANCE ANALYSIS OF VIRTUAL MACHINES AND CONTAINERS
 
 
-
-# VM vs Container Performance Analysis
-
-## 1. Objective
-
-Measure and compare the performance of Virtual Machines and Docker Containers using CPU, memory, disk, network, and application workloads.
-
-## 2. Technologies Used
-
-* VMware Workstation – Virtual Machine
-* Docker – Container
-* Ubuntu
-* Sysbench – CPU and Memory
-* fio – Disk I/O
-* iperf3 – Network
-* FastAPI – Application
-* Python
-* Pandas
-* Matplotlib
-
-## 3. VM Configuration
-
-| **Resource** | **Configuration** |
-| ------------ | ----------------- |
-| OS           | Ubuntu            |
-| CPU          | 4 vCPU            |
-| RAM          | 8 GB              |
-| Disk         | 60 GB             |
-| Network      | NAT / Bridged     |
-
 # PART A – VIRTUAL MACHINE
 
 ## 4. Create VM
@@ -615,5 +585,3 @@ git push -u origin main
 2. Check README.md.
 3. Check experiment files.
 4. Check results.
-5. Check graphs.
-6. Verify all files are uploaded.
