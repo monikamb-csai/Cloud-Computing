@@ -1,8 +1,7 @@
 # Experiment 1: Performance Analysis of Type-1 and Type-2 Hypervisors
 
 
-# TITLE:
-Hypervisor Performance Analysis
+# TITLE: Hypervisor Performance Analysis
 
 
 # 1. OBJECTIVES
