@@ -104,12 +104,12 @@
 
 ## Screenshot 18
 
-![Screenshot 18](18.png)
+![Screenshot 18](18_FastAPI_Benching.png)
 
 ## Screenshot 19
 
-![Screenshot 19](19.png)
+![Screenshot 19](19_Statistical_Analysis.png)
 
 ## Screenshot 20
 
-![Screenshot 20](20.png)
+![Screenshot 20](20_Final_Comparison.png)
