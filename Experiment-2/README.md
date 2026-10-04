@@ -245,7 +245,7 @@ Memory
 Storage
 Disk usage
 Linux kernel
-11. Install Required Tools
+# 11. Install Required Tools
 
 The following packages were installed:
 
@@ -259,8 +259,8 @@ fio --version
 iperf3 --version
 python3 --version
 git --version
-PART B – DOCKER CONTAINER
-12. Install Docker
+# PART B – DOCKER CONTAINER
+# 12. Install Docker
 
 Docker was installed using:
 
@@ -275,7 +275,7 @@ sudo systemctl start docker
 Docker version was checked using:
 
 docker --version
-13. Test Docker
+# 13. Test Docker
 
 Docker was tested using:
 
@@ -284,7 +284,7 @@ docker run --rm hello-world
 Expected output:
 
 Hello from Docker!
-14. Create Benchmark Project
+# 14. Create Benchmark Project
 
 The project directory was created using:
 
@@ -294,7 +294,7 @@ cd ~/vm-vs-container-performance
 The current location was checked using:
 
 pwd
-15. Create Docker Image
+# 15. Create Docker Image
 
 The Docker benchmark Dockerfile was created in:
 
@@ -307,8 +307,8 @@ docker build -t vm-container-benchmark -f docker/Dockerfile .
 The image was verified using:
 
 docker images
-PART C – BASELINE MEASUREMENT
-16. Baseline System Information
+# PART C – BASELINE MEASUREMENT
+# 16. Baseline System Information
 
 Baseline system information was collected using:
 
@@ -326,8 +326,8 @@ Available disk space
 
 The baseline information was saved for later analysis.
 
-PART D – CPU PERFORMANCE
-17. CPU Benchmark
+# PART D – CPU PERFORMANCE
+# 17. CPU Benchmark
 
 CPU performance was measured using Sysbench.
 
@@ -347,7 +347,7 @@ The benchmark records:
 Total execution time
 Events per second
 CPU time
-18. Observed CPU Results
+# 18. Observed CPU Results
 
 The confirmed CPU measurements available from the experiment are:
 
@@ -357,7 +357,7 @@ Threads	Events/sec
 
 The results show an increase in CPU throughput when more threads are used.
 
-19. CPU Monitoring
+# 19. CPU Monitoring
 
 CPU utilization can be monitored using:
 
@@ -366,8 +366,8 @@ htop
 or:
 
 vmstat 1
-PART E – MEMORY PERFORMANCE
-20. Memory Benchmark
+# PART E – MEMORY PERFORMANCE
+# 20. Memory Benchmark
 
 Memory performance was measured using Sysbench.
 
@@ -377,7 +377,7 @@ sysbench memory --memory-block-size=1M --memory-total-size=10G --threads=4 run
 
 Multiple runs were performed.
 
-21. Observed Memory Results
+# 21. Observed Memory Results
 
 The confirmed memory measurements are:
 
@@ -391,22 +391,22 @@ Average:
 
 The difference between the two runs shows that benchmark performance can vary due to system conditions.
 
-PART F – DISK PERFORMANCE
-22. Create Test Directory
+# PART F – DISK PERFORMANCE
+# 22. Create Test Directory
 mkdir -p ~/fio-test
-23. Sequential Write Test
+# 23. Sequential Write Test
 fio --name=seqwrite --filename=~/fio-test/testfile \
 --size=2G --bs=1M --rw=write --direct=1 \
 --iodepth=16 --runtime=30 --time_based
-24. Sequential Read Test
+# 24. Sequential Read Test
 fio --name=seqread --filename=~/fio-test/testfile \
 --size=2G --bs=1M --rw=read --direct=1 \
 --iodepth=16 --runtime=30 --time_based
-25. Random Write Test
+# 25. Random Write Test
 fio --name=randwrite --filename=~/fio-test/testfile \
 --size=2G --bs=4k --rw=randwrite --direct=1 \
 --iodepth=16 --runtime=30 --time_based
-26. Random Read Test
+# 26. Random Read Test
 fio --name=randread --filename=~/fio-test/testfile \
 --size=2G --bs=4k --rw=randread --direct=1 \
 --iodepth=16 --runtime=30 --time_based
@@ -416,7 +416,7 @@ The following values are recorded:
 IOPS
 Bandwidth
 Latency
-27. Observed Disk Result
+# 27. Observed Disk Result
 
 One confirmed disk measurement from the benchmark was:
 
@@ -426,8 +426,8 @@ IOPS = 9580
 
 Other disk values should be taken directly from the corresponding benchmark output.
 
-PART G – NETWORK PERFORMANCE
-28. Start iperf3 Server
+# PART G – NETWORK PERFORMANCE
+# 28. Start iperf3 Server
 
 The iperf3 server was started using:
 
@@ -436,7 +436,7 @@ iperf3 -s
 The IP address can be checked using:
 
 ip addr
-29. Run iperf3 Client
+# 29. Run iperf3 Client
 
 The client can be executed using:
 
@@ -451,7 +451,7 @@ The following values are recorded:
 Bandwidth
 Transfer
 Network throughput
-30. Observed Network Result
+# 30. Observed Network Result
 
 The confirmed loopback benchmark result was:
 
@@ -459,8 +459,8 @@ The confirmed loopback benchmark result was:
 
 This is a local loopback measurement and should not be interpreted as Internet or Wi-Fi speed.
 
-PART H – FASTAPI APPLICATION
-31. Create FastAPI Application
+# PART H – FASTAPI APPLICATION
+# 31. Create FastAPI Application
 
 The FastAPI application was created in:
 
@@ -492,7 +492,7 @@ def compute():
         "result": total,
         "execution_time": elapsed
     }
-32. Run FastAPI
+# 32. Run FastAPI
 
 The required packages were installed using:
 
@@ -501,7 +501,7 @@ pip3 install fastapi uvicorn
 The application was started using:
 
 python3 -m uvicorn api.main:app --host 127.0.0.1 --port 8000
-33. Test FastAPI
+# 33. Test FastAPI
 
 Health endpoint:
 
@@ -510,8 +510,8 @@ curl http://localhost:8000/health
 Compute endpoint:
 
 curl http://localhost:8000/compute
-PART I – DOCKERIZE FASTAPI
-34. Requirements File
+# PART I – DOCKERIZE FASTAPI
+# 34. Requirements File
 
 The file:
 
@@ -521,7 +521,7 @@ contains:
 
 fastapi
 uvicorn
-35. API Dockerfile
+# 35. API Dockerfile
 
 The Dockerfile contains:
 
@@ -538,9 +538,9 @@ COPY main.py .
 EXPOSE 8000
 
 CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-36. Build FastAPI Image
+# 36. Build FastAPI Image
 docker build -t performance-api -f api/Dockerfile api
-37. Run FastAPI Container
+# 37. Run FastAPI Container
 docker run -d --name performance-api-container -p 8000:8000 performance-api
 
 Check the running container:
@@ -554,8 +554,8 @@ curl http://localhost:8000/health
 Test compute endpoint:
 
 curl http://localhost:8000/compute
-PART J – APPLICATION PERFORMANCE
-38. API Response Time
+# PART J – APPLICATION PERFORMANCE
+# 38. API Response Time
 
 Response time was measured using:
 
@@ -578,7 +578,7 @@ Average response time:
 Approximately:
 
 10.31 milliseconds
-39. Apache Benchmark
+# 39. Apache Benchmark
 
 Apache Benchmark can be installed using:
 
@@ -598,8 +598,8 @@ Requests per second
 Latency
 Failed requests
 Connection time
-PART K – STARTUP TIME
-40. Startup Time
+# PART K – STARTUP TIME
+# 40. Startup Time
 
 Application startup was measured using the application execution command.
 
@@ -609,8 +609,8 @@ The confirmed measured real time from the experiment was:
 
 The startup measurement represents the observed execution time of the application startup experiment.
 
-PART L – SCALABILITY
-41. CPU Scalability
+# PART L – SCALABILITY
+# 41. CPU Scalability
 
 CPU tests were performed using:
 
@@ -621,7 +621,7 @@ CPU tests were performed using:
 
 The results are used to understand how performance changes when more CPU threads are used.
 
-42. API Scalability
+# 42. API Scalability
 
 The application was tested with increasing workloads.
 
@@ -634,8 +634,8 @@ Requests	Total Time
 
 The results show that total execution time increases as the number of requests increases.
 
-PART M – DOCKER BENCHMARKING
-43. Docker CPU Benchmark
+# PART M – DOCKER BENCHMARKING
+# 43. Docker CPU Benchmark
 
 The same Sysbench CPU methodology was used inside the Docker environment.
 
@@ -648,7 +648,7 @@ The following thread counts were tested:
 
 This allows CPU performance to be evaluated under containerized execution.
 
-44. Docker Memory Benchmark
+# 44. Docker Memory Benchmark
 
 The same memory benchmark was executed inside the Docker container:
 
@@ -656,7 +656,7 @@ sysbench memory --memory-block-size=1M --memory-total-size=10G run
 
 Multiple runs were performed.
 
-45. Docker Disk Benchmark
+# 45. Docker Disk Benchmark
 
 fio was installed inside the Docker container.
 
@@ -669,7 +669,7 @@ Random Write
 
 The same benchmark methodology was used for comparison.
 
-46. Docker Network Benchmark
+# 46. Docker Network Benchmark
 
 iperf3 was installed inside the Docker environment.
 
@@ -679,7 +679,7 @@ iperf3 -c 127.0.0.1 -t 10
 
 The result represents local loopback performance.
 
-47. Docker FastAPI Application
+# 47. Docker FastAPI Application
 
 The FastAPI application was built as a Docker image:
 
@@ -696,8 +696,8 @@ curl http://127.0.0.1:8000/health
 and:
 
 curl http://127.0.0.1:8000/compute
-PART N – RESULTS
-48. Results Storage
+# PART N – RESULTS
+# 48. Results Storage
 
 Raw results are stored in:
 
@@ -710,7 +710,7 @@ results/processed/
 Generated graphs are stored in:
 
 results/figures/
-49. Performance Results CSV
+# 49. Performance Results CSV
 
 The measured results are stored in:
 
@@ -736,7 +736,7 @@ Startup,Uvicorn startup,22.198,seconds
 Scalability,10 requests,0.173,seconds
 Scalability,50 requests,0.608,seconds
 Scalability,100 requests,1.458,seconds
-50. Statistical Analysis
+# 50. Statistical Analysis
 
 Statistical analysis was performed using Python and Pandas.
 
@@ -755,7 +755,7 @@ scripts/analyze_results.py
 The output file is:
 
 results/processed/statistical_analysis.csv
-51. Statistical Results
+# 51. Statistical Results
 Experiment	Mean	Median	Minimum	Maximum	Standard Deviation
 CPU	4025.915	4025.915	2847.74	5204.09	1666.191
 Memory	30691.245	30691.245	28440.75	32941.74	3182.681
@@ -766,7 +766,7 @@ Scalability	0.7463	0.608	0.173	1.458	0.6536
 
 For experiments with only one value, standard deviation is shown as N/A.
 
-52. Graph Generation
+# 52. Graph Generation
 
 Graphs were generated using Python and Matplotlib.
 
@@ -786,32 +786,32 @@ memory_performance.png
 network_performance.png
 scalability.png
 startup_time.png
-53. Performance Graphs
-53.1 API Performance
+# 53. Performance Graphs
+## 53.1 API Performance
 
 The API graph shows the response-time variation across the recorded requests.
 
-53.2 CPU Performance
+## 53.2 CPU Performance
 
 The CPU graph shows CPU performance for the tested thread counts.
 
-53.3 Memory Performance
+## 53.3 Memory Performance
 
 The memory graph shows the measured memory throughput for the recorded runs.
 
-53.4 Network Performance
+## 53.4 Network Performance
 
 The network graph represents the measured loopback network throughput.
 
-53.5 Scalability
+## 53.5 Scalability
 
 The scalability graph shows how total execution time changes with increasing numbers of requests.
 
-53.6 Startup Time
+## 53.6 Startup Time
 
 The startup graph represents the measured application startup experiment.
 
-## PART O – VM AND CONTAINER COMPARISON
+# PART O – VM AND CONTAINER COMPARISON
 # 54. Comparison
 
 The following table provides a comparison of the two environments.
